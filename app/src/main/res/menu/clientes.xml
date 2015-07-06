@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cl.cmt.unidad1.activity.ClientesActivity" >
+
+    <item
+        android:id="@+id/listadoUsuarios"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Listado Usuarios"/>
+    <item
+        android:id="@+id/mantenedorClientes"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Administrar Clientes"/>
+    <item
+        android:id="@+id/realizarPedidos"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Registrar Pedidos"/>
+    <item
+        android:id="@+id/verPedidos"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Ver Pedidos"/>
+    <item
+        android:id="@+id/resumenEntregas"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Resumen de entregas"/>
+    <item
+        android:id="@+id/clientesEliminados"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Ver Clientes eliminados"/>
+
+</menu>

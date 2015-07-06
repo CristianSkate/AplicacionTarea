@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:title="Mis Clientes"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:title="Realizar Pedido" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:title="Administrar Clientes" />
+        <item
+            android:id="@+id/nav_four_fragment"
+            android:title="Ver pedidos" />
+        <item
+            android:id="@+id/nav_fifth_fragment"
+            android:title="Ver entregas" />
+        <item
+            android:id="@+id/nav_sixth_fragment"
+            android:title="Ver clientes eliminados" />
+        <item
+            android:id="@+id/nav_seventh_fragment"
+            android:title="Ver usuarios" />
+    </group>
+</menu><!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/menu/drawer_menu.xml -->

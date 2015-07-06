@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cl.cmt.unidad1.activity.RealizarPedidosActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="40dp"
+        android:text="Cliente" />
+
+    <Spinner
+        android:id="@+id/spnPedClientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spnPedClientes"
+        android:layout_below="@+id/spnPedClientes"
+        android:text="Producto" />
+
+    <Spinner
+        android:id="@+id/spnPedProductos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spnPedProductos"
+        android:layout_below="@+id/spnPedProductos"
+        android:text="Cantidad" />
+
+    <EditText
+        android:id="@+id/txtPedCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/textView3"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPedCantidad"
+        android:layout_below="@+id/txtPedCantidad"
+        android:text="Total" />
+
+    <EditText
+        android:id="@+id/txtPedTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPedTotal"
+        android:layout_below="@+id/txtPedTotal"
+        android:text="Fecha entrega" />
+
+    <EditText
+        android:id="@+id/txtPedFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/btnPedGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPedFecha"
+        android:layout_below="@+id/txtPedFecha"
+        android:layout_marginTop="16dp"
+        android:text="Guardar" />
+
+    <Button
+        android:id="@+id/btnPedCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnPedGuardar"
+        android:layout_alignBottom="@+id/btnPedGuardar"
+        android:layout_alignRight="@+id/txtPedFecha"
+        android:text="Cancelar" />
+
+</RelativeLayout>

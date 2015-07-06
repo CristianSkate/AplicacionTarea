@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Primera Aplicacion</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_usuarios">Lista de usuarios</string>
+    <string name="title_activity_clientes">Listado de mis clientes</string>
+    <string name="title_activity_mantenedor_clientes">Administración de clientes</string>
+    <string name="title_activity_entregas">Registrar una entrega</string>
+    <string name="title_activity_ver_entregas">Mis Entregas</string>
+    <string name="title_activity_ver_clientes_eliminados">Clientes Eliminados</string>
+    <string name="title_activity_realizar_pedidos">Registrar pedido</string>
+    <string name="title_activity_ver_pedidos">Pedidos Pendientes</string>
+    <string name="title_activity_mantenedor_principal">Mantenedor Principal</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
+</resources>
