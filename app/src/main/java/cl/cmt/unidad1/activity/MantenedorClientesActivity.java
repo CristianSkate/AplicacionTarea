@@ -95,7 +95,7 @@ public class MantenedorClientesActivity extends Fragment {
 				}
 				
 				if(!ve){
-					Toast.makeText(getActivity(), "Cliente actualizado con éxito", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "Cliente actualizado con Ã©xito", Toast.LENGTH_SHORT).show();
 				}else{
 					Cliente nuevo = new Cliente();
 					nuevo.id_cliente = Integer.parseInt(txtIdCliente.getText().toString());
@@ -105,7 +105,7 @@ public class MantenedorClientesActivity extends Fragment {
 					nuevo.telefono_cliente = txtFonoCliente.getText().toString();
 					LoginActivity.clientes.add(nuevo);
 					//ClientesActivity.adapter.notifyDataSetChanged();
-					Toast.makeText(getActivity(), "Cliente insertado con éxito", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "Cliente insertado con ï¿½xito", Toast.LENGTH_SHORT).show();
 				}
 				
 				
@@ -143,7 +143,7 @@ public class MantenedorClientesActivity extends Fragment {
 					
 				}
 				if(size !=LoginActivity.clientes.size()){
-					Toast.makeText(getActivity(), "Se eliminó el cliente con exito", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "Se eliminï¿½ el cliente con exito", Toast.LENGTH_SHORT).show();
 				}else{
 					Toast.makeText(getActivity(), "El cliente seleccionado no existe", Toast.LENGTH_SHORT).show();
 				}

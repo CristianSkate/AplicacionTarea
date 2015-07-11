@@ -89,6 +89,9 @@ public class MantenedorPrincipal extends AppCompatActivity {
             case R.id.nav_seventh_fragment:
                 fragmentClass = UsuariosActivity.class;
                 break;
+            case R.id.mantenedorMapa:
+                fragmentClass = MapFragment.class;
+                break;
             default:
                 fragmentClass = ClientesActivity.class;
         }
