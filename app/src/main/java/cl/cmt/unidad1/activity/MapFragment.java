@@ -2,6 +2,8 @@ package cl.cmt.unidad1.activity;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
+
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +13,7 @@ import android.view.ViewGroup;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback{
-
+    private int contador = 0;
     private static View view;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             if (view != null) {
@@ -23,30 +25,33 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             return view;
     }
 
-
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        //View v = getView();
-        //SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-        //.findFragmentById(R.id.mapa);
-        //mapFragment.getMapAsync(this);
-
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+        .findFragmentById(R.id.mapa);
+        mapFragment.getMapAsync(this);
     }
 
     @Override
-    public void onMapReady(GoogleMap map) {
+    public void onMapReady(final GoogleMap map) {
 
-        LatLng sydney = new LatLng(-33.867, 151.206);
-
+        LatLng santiago = new LatLng(-33.4727879,-70.6298313);
         map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
-
-        map.addMarker(new MarkerOptions()
-                .title("Sydney")
-                .snippet("The most populous city in Australia.")
-                .position(sydney));
+        map.setBuildingsEnabled(true);
+        map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setZoomGesturesEnabled(true);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(santiago, 8));
+        map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange(Location location) {
+                if (contador == 0) {
+                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16.0f));
+                }
+                contador = 1;
+            }
+        });
 
     }
+
 }

@@ -66,7 +66,7 @@ public class MantenedorPrincipal extends AppCompatActivity {
         // position
         Fragment fragment = null;
 
-        Class fragmentClass;
+        Class fragmentClass = null;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
                 fragmentClass = ClientesActivity.class;
@@ -97,16 +97,21 @@ public class MantenedorPrincipal extends AppCompatActivity {
         }
 
         try {
-            fragment = (Fragment) fragmentClass.newInstance();
+            if (fragmentClass !=null) {
+                fragment = (Fragment) fragmentClass.newInstance();
+            }
+            else{
+                fragment =null;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-
-
+        if (fragment != null) {
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
 
         // Highlight the selected item, update the title, and close the drawer
         menuItem.setChecked(true);
@@ -148,4 +153,6 @@ public class MantenedorPrincipal extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
+
+
 }
