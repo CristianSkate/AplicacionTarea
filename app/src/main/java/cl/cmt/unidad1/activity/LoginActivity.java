@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cl.cmt.unidad1.clases.Cliente;
 import cl.cmt.unidad1.clases.Entrega;
 import cl.cmt.unidad1.clases.Pedido;
+import cl.cmt.unidad1.clases.Ubicacion;
 import cl.cmt.unidad1.clases.Usuario;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +25,7 @@ public class LoginActivity extends Activity {
 	public static ArrayList<Cliente> eliminados = new ArrayList<Cliente>();
 	public static ArrayList<Entrega> entregas = new ArrayList<Entrega>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+	public static ArrayList<Ubicacion> ubicacionesRegistradas = new ArrayList<Ubicacion>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

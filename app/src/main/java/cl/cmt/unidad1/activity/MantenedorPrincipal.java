@@ -1,5 +1,6 @@
 package cl.cmt.unidad1.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
+import cl.cmt.unidad1.servicios.RegistraUbicacion;
+
+
 public class MantenedorPrincipal extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -25,6 +29,7 @@ public class MantenedorPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mantenedor_principal);
+        startService(new Intent(MantenedorPrincipal.this, RegistraUbicacion.class));
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mDrawer = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -44,6 +49,12 @@ public class MantenedorPrincipal extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         setTitle("Mis Clientes");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //stopService(new Intent(MantenedorPrincipal.this, RegistraUbicacion.class));
     }
 
     private ActionBarDrawerToggle setupDrawerToggle(){
@@ -91,6 +102,9 @@ public class MantenedorPrincipal extends AppCompatActivity {
                 break;
             case R.id.mantenedorMapa:
                 fragmentClass = MapFragment.class;
+                break;
+            case R.id.verUbicacionesRegistradas:
+                fragmentClass = VerUbicacionesRegistradasActivity.class;
                 break;
             default:
                 fragmentClass = ClientesActivity.class;

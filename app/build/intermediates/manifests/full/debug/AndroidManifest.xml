@@ -79,6 +79,12 @@
             android:name="cl.cmt.unidad1.activity.MantenedorPrincipal"
             android:label="@string/title_activity_mantenedor_principal" >
         </activity>
+
+        <service
+            android:name="cl.cmt.unidad1.servicios.RegistraUbicacion"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
