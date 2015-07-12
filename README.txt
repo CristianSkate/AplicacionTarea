@@ -1,14 +1,15 @@
-Titulo del trabajo: Construccion de la interfáz de usuario en android
+Titulo del trabajo: desarrollo de una aplicación móvil en Android
 Alumno: Cristian Martinez Toledo
 Profesor: Cristian Correa
+GitHub: https://github.com/CristianSkate/AplicacionTarea
 
-Se le implementaron mejoras de UI para la selección de opciones del sistema.
+La aplicación tiene 2 usuarios para ingresar, cmartinez/abc123 y juan/juan
 
-¿Que componentes UI estaba utilizando incorrectamente y por que?
-R: en verdad no puedo responder esa pregunta por mi poca experiencia, para mi estaba todo bien utilizado
+Se implemento el servicio que registra la ubicación del usuario cada 3 minuos
+guardando latitud, longitud, ip y dirección (Calle, numeracion aproximada, ciudad, país)
 
-¿Cual es el aporte de los wireframes al nuevo proceso de construcción?
-R: Sinceramente, casi nulo, ya que el wireframe lo construí despues de la aplicación en si.
+Se implementó una prueba de jUnint para testear la función validarUsuario usada para login
 
-¿Como mejoro la interfaz de la aplicacion al utilizar wireframes?
-R: Quedó exactamente igual a como lo tenía
+Además se agregó un mapa que por el momento indica la ubicación del usuario
+
+
