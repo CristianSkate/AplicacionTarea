@@ -25,7 +25,7 @@ import cl.cmt.unidad1.activity.LoginActivity;
 import cl.cmt.unidad1.activity.VerUbicacionesRegistradasActivity;
 import cl.cmt.unidad1.clases.Ubicacion;
 
-public class RegistraUbicacion extends Service implements LocationListener {
+public class RegistraUbicacion extends Service implements LocationListener{
     private static final long MIN_DISTANCE = 5; // distancia mínima
     private static final long MIN_TIME = 180 * 1000; // 3 minutos
     private LocationManager mLocationManager; // objeto location
@@ -42,18 +42,17 @@ public class RegistraUbicacion extends Service implements LocationListener {
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
         criteria = new Criteria();
         criteria.setCostAllowed(false);
         criteria.setAltitudeRequired(false);
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         mProvider = mLocationManager.getBestProvider(criteria, true);
-        Location loc = mLocationManager.getLastKnownLocation(mProvider);
         mLocationManager.requestLocationUpdates(mProvider, MIN_TIME, MIN_DISTANCE, this);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -64,20 +63,23 @@ public class RegistraUbicacion extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-
         Ubicacion ub = new Ubicacion();
-
         ub.latitud = String.valueOf(location.getLatitude());
         ub.longitud = String.valueOf(location.getLongitude());
         ub.ip = getLocalIpAddress();
-        ub.direccion = obtenerDireccion(ub.latitud,ub.longitud);
+        ub.direccion = obtenerDireccion(ub.latitud, ub.longitud);
 
         LoginActivity.ubicacionesRegistradas.add(ub);
         if (VerUbicacionesRegistradasActivity.adapter != null) {
             VerUbicacionesRegistradasActivity.adapter.notifyDataSetChanged();
         }
-
     }
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
+    @Override
+    public void onProviderEnabled(String provider) {}
+    @Override
+    public void onProviderDisabled(String provider) {}
 
     public String getLocalIpAddress() {
         try {
@@ -132,20 +134,5 @@ public class RegistraUbicacion extends Service implements LocationListener {
             Log.e(TAG, ex.toString());
         }
         return "";
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
     }
 }

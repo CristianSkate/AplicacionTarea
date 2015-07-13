@@ -29,7 +29,7 @@ public class MantenedorPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mantenedor_principal);
-        startService(new Intent(MantenedorPrincipal.this, RegistraUbicacion.class));
+        startService(new Intent(this, RegistraUbicacion.class));
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mDrawer = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -49,6 +49,18 @@ public class MantenedorPrincipal extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         setTitle("Mis Clientes");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(this, RegistraUbicacion.class));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopService(new Intent(this, RegistraUbicacion.class));
     }
 
     @Override
