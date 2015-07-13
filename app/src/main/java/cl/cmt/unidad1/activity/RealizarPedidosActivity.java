@@ -77,7 +77,7 @@ public class RealizarPedidosActivity extends Fragment {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
+
 				
 				int precio = prods.get(position).precio;
 				if(!txtCantidad.getText().toString().equals("")){
@@ -87,7 +87,7 @@ public class RealizarPedidosActivity extends Fragment {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
+
 				
 			}
 
@@ -99,7 +99,7 @@ public class RealizarPedidosActivity extends Fragment {
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
+
 				if(!hasFocus){
 				int precio=prods.get(spnProductos.getSelectedItemPosition()).precio;
 				    if(!txtCantidad.getText().toString().equals("")){
@@ -114,7 +114,7 @@ public class RealizarPedidosActivity extends Fragment {
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
+
 				if (hasFocus){
 
 				}
@@ -141,7 +141,7 @@ public class RealizarPedidosActivity extends Fragment {
 					Toast.makeText(getActivity(), "Pedido agregado con éxito", Toast.LENGTH_SHORT).show();
 
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
+
 					Toast.makeText(getActivity(), "Escriba bien la fecha de entrega", Toast.LENGTH_SHORT).show();
 					//e.printStackTrace();
 				}

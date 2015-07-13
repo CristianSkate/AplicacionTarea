@@ -51,60 +51,12 @@ public class EntregasActivity extends Activity {
 		txtCantidad.setText(String.valueOf(LoginActivity.pedidos.get(index).cantidad));
 		txtTotal.setText(String.valueOf(LoginActivity.pedidos.get(index).total));
 		
-//		Producto p = new Producto();
-//		txtCantidad.requestFocus();
-//		prods = p.listaProductos();
-		//Creo adaptador para rellenar el spinner/Combobox
-		
-//		ArrayAdapter<Producto> productos = new ArrayAdapter<Producto>(getApplicationContext(),R.layout.spinner_item , prods);
-//		productos.setDropDownViewResource(R.layout.spinner_item);
-//		spnProductos.setAdapter(productos);
-//		productos.notifyDataSetChanged();
-		
-//		spnProductos.setSelection(position);
-//		
-//		spnProductos.setOnItemSelectedListener(new OnItemSelectedListener(){
-//
-//			@Override
-//			public void onItemSelected(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				// TODO Auto-generated method stub
-//				
-//				int precio = prods.get(position).precio;
-//				txtPrecio.setText(String.valueOf(precio));
-//				if(!txtCantidad.getText().toString().equals("")){
-//					txtTotal.setText(String.valueOf(Integer.parseInt(txtPrecio.getText().toString())*Integer.parseInt(txtCantidad.getText().toString())));
-//				}
-//				
-//			}
-//
-//			@Override
-//			public void onNothingSelected(AdapterView<?> parent) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//		});
 
-//		txtCantidad.setOnFocusChangeListener(new OnFocusChangeListener(){
-//
-//			@Override
-//			public void onFocusChange(View v, boolean hasFocus) {
-//				// TODO Auto-generated method stub
-//				if(!hasFocus){
-//					if(!txtCantidad.getText().toString().equals("")){
-//						txtTotal.setText(String.valueOf(Integer.parseInt(txtPrecio.getText().toString())*Integer.parseInt(txtCantidad.getText().toString())));
-//					}
-//				}
-//			}
-//			
-//		});
-//		
 		btnGuardar.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				Entrega ent = new Entrega();
 				
 				if(txtCantidad.getText().toString().equals("") || txtTotal.getText().toString().equals("")){
@@ -132,7 +84,6 @@ public class EntregasActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				finish();
 			}
 			

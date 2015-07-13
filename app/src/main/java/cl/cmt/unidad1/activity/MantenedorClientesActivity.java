@@ -38,7 +38,7 @@ public class MantenedorClientesActivity extends Fragment {
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
+
 				
 				Cliente cliente = new Cliente();
 				int i = 0;
@@ -69,7 +69,7 @@ public class MantenedorClientesActivity extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				
 				int i = 0;
 				int size = LoginActivity.clientes.size();
@@ -115,7 +115,7 @@ public class MantenedorClientesActivity extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				int i = 0;
 				int size = LoginActivity.clientes.size();
 				boolean ve = true;
@@ -150,7 +150,7 @@ public class MantenedorClientesActivity extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				txtIdCliente.setText("");
 				txtNomCliente.setText("");
 				txtNomNegCliente.setText("");
