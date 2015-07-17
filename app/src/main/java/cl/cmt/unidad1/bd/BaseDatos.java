@@ -43,8 +43,8 @@ public class BaseDatos extends SQLiteOpenHelper{
     private String UPDATE_DB="";
     private final Context context;
 
-    public BaseDatos(Context context, CursorFactory factory){
-        super(context, DB_NAME, factory, VERSION_DB);
+    public BaseDatos(Context context){
+        super(context, DB_NAME, null, VERSION_DB);
         this.context = context;
     }
 

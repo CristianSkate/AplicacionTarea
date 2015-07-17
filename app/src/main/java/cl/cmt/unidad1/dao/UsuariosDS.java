@@ -24,7 +24,7 @@ public class UsuariosDS {
     private String tabla = "usuarios";
 
     public UsuariosDS(Context context, CursorFactory factory){
-        dbHelper = new BaseDatos(context,factory);
+        dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
         database = dbHelper.getWritableDatabase();
