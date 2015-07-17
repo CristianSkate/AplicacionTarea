@@ -4,8 +4,8 @@ package cl.cmt.unidad1.clases;
 public class Ubicacion {
 
 	// Se declaran las variables del objeto cliente
-	//public int idUbicacion;
-	//public int idUsuario;
+	public int idUbicacion;
+	public int idUsuario;
 	public String latitud;
 	public String longitud;
 	public String ip;

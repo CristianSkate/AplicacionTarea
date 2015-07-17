@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cliente {
 
 	// Se declaran las variables del objeto cliente
-	public int idVendedor;
+	public int id_Vendedor;
 	public int id_cliente;
 	public String nombre_negocio;
 	public String nombre_cliente;

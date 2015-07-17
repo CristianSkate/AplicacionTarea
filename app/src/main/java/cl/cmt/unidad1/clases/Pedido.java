@@ -6,6 +6,7 @@ import java.util.Date;
 public class Pedido {
 
 	public int idPedido;
+	public int idVendedor;
 	public String cliente;
 	public String producto;
 	public int cantidad;

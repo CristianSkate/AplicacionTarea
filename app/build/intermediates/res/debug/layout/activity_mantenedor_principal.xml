@@ -32,4 +32,4 @@
         android:background="@android:color/white"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
-</android.support.v4.widget.DrawerLayout><!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/layout/activity_mantenedor_principal.xml -->
+</android.support.v4.widget.DrawerLayout><!-- From: file:/C:/Users/cmartinez/Desktop/CMT/StudioProjects/AplicacionTarea/app/src/main/res/layout/activity_mantenedor_principal.xml -->
