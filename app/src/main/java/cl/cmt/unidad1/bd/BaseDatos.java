@@ -10,9 +10,9 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
  * Created by CMartinez on 17-07-2015.
  */
 public class BaseDatos extends SQLiteOpenHelper{
-    public String DB_PATH="./";
-    public String DB_NAME="bd_app";
-    public static int version_db=1;
+    public static final String DB_PATH="./";
+    public static final String DB_NAME="bd_app.db";
+    public static final int VERSION_DB=1;
     private String CREATE_TABLE_USUARIOS = "create table usuarios(id integer primary key autoincrement," +
             "nombreUsuario text, loginUsuario text, contrasena text)";
     private String CREATE_TABLE_CLIENTES = "create table clientes(id integer primary key autoincrement," +
@@ -43,8 +43,8 @@ public class BaseDatos extends SQLiteOpenHelper{
     private String UPDATE_DB="";
     private final Context context;
 
-    public BaseDatos(Context context, String nombre, CursorFactory factory, int version){
-        super(context, nombre, factory, version);
+    public BaseDatos(Context context, CursorFactory factory){
+        super(context, DB_NAME, factory, VERSION_DB);
         this.context = context;
     }
 
