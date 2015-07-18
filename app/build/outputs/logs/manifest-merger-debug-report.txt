@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -11,8 +13,6 @@ ADDED from AndroidManifest.xml:2:1
 		ADDED from AndroidManifest.xml:4:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:appcompat-v7:22.2.0:20:5
@@ -64,10 +64,10 @@ ADDED from AndroidManifest.xml:19:5
 		ADDED from AndroidManifest.xml:19:22
 uses-feature#0x00020000
 ADDED from AndroidManifest.xml:21:5
-	android:glEsVersion
-		ADDED from AndroidManifest.xml:22:9
 	android:required
 		ADDED from AndroidManifest.xml:23:9
+	android:glEsVersion
+		ADDED from AndroidManifest.xml:22:9
 application
 ADDED from AndroidManifest.xml:25:5
 MERGED from com.android.support:appcompat-v7:22.2.0:22:5
@@ -90,16 +90,16 @@ MERGED from com.android.support:support-v4:22.2.0:22:5
 meta-data#com.google.android.gms.version
 ADDED from AndroidManifest.xml:30:9
 MERGED from com.google.android.gms:play-services:6.5.87:21:9
-	android:value
-		ADDED from AndroidManifest.xml:32:13
 	android:name
 		ADDED from AndroidManifest.xml:31:13
+	android:value
+		ADDED from AndroidManifest.xml:32:13
 meta-data#com.google.android.geo.API_KEY
 ADDED from AndroidManifest.xml:33:9
-	android:value
-		ADDED from AndroidManifest.xml:35:13
 	android:name
 		ADDED from AndroidManifest.xml:34:13
+	android:value
+		ADDED from AndroidManifest.xml:35:13
 activity#cl.cmt.unidad1.activity.LoginActivity
 ADDED from AndroidManifest.xml:37:9
 	android:label
@@ -116,65 +116,23 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:43:17
 	android:name
 		ADDED from AndroidManifest.xml:43:27
-activity#cl.cmt.unidad1.activity.UsuariosActivity
+activity#cl.cmt.unidad1.activity.EntregasActivity
 ADDED from AndroidManifest.xml:46:9
 	android:label
 		ADDED from AndroidManifest.xml:48:13
 	android:name
 		ADDED from AndroidManifest.xml:47:13
-activity#cl.cmt.unidad1.activity.ClientesActivity
-ADDED from AndroidManifest.xml:50:9
-	android:label
-		ADDED from AndroidManifest.xml:52:13
-	android:name
-		ADDED from AndroidManifest.xml:51:13
-activity#cl.cmt.unidad1.activity.MantenedorClientesActivity
-ADDED from AndroidManifest.xml:54:9
-	android:label
-		ADDED from AndroidManifest.xml:56:13
-	android:name
-		ADDED from AndroidManifest.xml:55:13
-activity#cl.cmt.unidad1.activity.EntregasActivity
-ADDED from AndroidManifest.xml:58:9
-	android:label
-		ADDED from AndroidManifest.xml:60:13
-	android:name
-		ADDED from AndroidManifest.xml:59:13
-activity#cl.cmt.unidad1.activity.VerEntregasActivity
-ADDED from AndroidManifest.xml:62:9
-	android:label
-		ADDED from AndroidManifest.xml:64:13
-	android:name
-		ADDED from AndroidManifest.xml:63:13
-activity#cl.cmt.unidad1.activity.VerClientesEliminadosActivity
-ADDED from AndroidManifest.xml:66:9
-	android:label
-		ADDED from AndroidManifest.xml:68:13
-	android:name
-		ADDED from AndroidManifest.xml:67:13
-activity#cl.cmt.unidad1.activity.RealizarPedidosActivity
-ADDED from AndroidManifest.xml:70:9
-	android:label
-		ADDED from AndroidManifest.xml:72:13
-	android:name
-		ADDED from AndroidManifest.xml:71:13
-activity#cl.cmt.unidad1.activity.VerPedidosActivity
-ADDED from AndroidManifest.xml:74:9
-	android:label
-		ADDED from AndroidManifest.xml:76:13
-	android:name
-		ADDED from AndroidManifest.xml:75:13
 activity#cl.cmt.unidad1.activity.MantenedorPrincipal
-ADDED from AndroidManifest.xml:78:9
+ADDED from AndroidManifest.xml:51:9
 	android:label
-		ADDED from AndroidManifest.xml:80:13
+		ADDED from AndroidManifest.xml:53:13
 	android:name
-		ADDED from AndroidManifest.xml:79:13
+		ADDED from AndroidManifest.xml:52:13
 service#cl.cmt.unidad1.servicios.RegistraUbicacion
-ADDED from AndroidManifest.xml:83:9
-	android:enabled
-		ADDED from AndroidManifest.xml:85:13
+ADDED from AndroidManifest.xml:56:9
 	android:exported
-		ADDED from AndroidManifest.xml:86:13
+		ADDED from AndroidManifest.xml:59:13
+	android:enabled
+		ADDED from AndroidManifest.xml:58:13
 	android:name
-		ADDED from AndroidManifest.xml:84:13
+		ADDED from AndroidManifest.xml:57:13

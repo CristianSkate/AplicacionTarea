@@ -44,37 +44,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UsuariosActivity"
-            android:label="@string/title_activity_usuarios" >
-        </activity>
-        <activity
-            android:name=".ClientesActivity"
-            android:label="@string/title_activity_clientes" >
-        </activity>
-        <activity
-            android:name=".MantenedorClientesActivity"
-            android:label="@string/title_activity_mantenedor_clientes" >
-        </activity>
-        <activity
             android:name=".EntregasActivity"
             android:label="@string/title_activity_entregas" >
         </activity>
-        <activity
-            android:name=".VerEntregasActivity"
-            android:label="@string/title_activity_ver_entregas" >
-        </activity>
-        <activity
-            android:name=".VerClientesEliminadosActivity"
-            android:label="@string/title_activity_ver_clientes_eliminados" >
-        </activity>
-        <activity
-            android:name=".RealizarPedidosActivity"
-            android:label="@string/title_activity_realizar_pedidos" >
-        </activity>
-        <activity
-            android:name=".VerPedidosActivity"
-            android:label="@string/title_activity_ver_pedidos" >
-        </activity>
+
         <activity
             android:name=".MantenedorPrincipal"
             android:label="@string/title_activity_mantenedor_principal" >

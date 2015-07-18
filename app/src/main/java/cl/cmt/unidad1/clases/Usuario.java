@@ -2,6 +2,8 @@ package cl.cmt.unidad1.clases;
 
 import java.util.ArrayList;
 
+import cl.cmt.unidad1.dao.UsuariosDS;
+
 public class Usuario {
 
 	
@@ -9,40 +11,14 @@ public class Usuario {
 	public String nombre_usuario;
 	public String login_usuario;
 	public String contrasena;
-	
-	
-	//El codigo a continuacion genera una lista y la devuelve.
-	
-	public ArrayList<Usuario> listaUsuarios(){
-		
-		ArrayList<Usuario> lista = new ArrayList<Usuario>();
-		
-		Usuario usuario = new Usuario();
-		usuario.id_usuario = 1;
-		usuario.nombre_usuario = "Juan Perez";
-		usuario.login_usuario = "juan";
-		usuario.contrasena  = "juan";
-		
-		lista.add(usuario);
-		
-		usuario = new Usuario();
-		usuario.id_usuario = 2;
-		usuario.nombre_usuario = "Cristian Martinez";
-		usuario.login_usuario = "cmartinez";
-		usuario.contrasena = "abc123";
-		
-		lista.add(usuario);
-		return lista;
-		
-		
-	}
+
 	
 	//Este metodo realiza la validacion del login del usuario
 	
-	public boolean validarUsuario(String login, String contrasena){
-		
+	/*public boolean validarUsuario(String login, String contrasena){
+
 		Usuario usuario;
-		ArrayList<Usuario> usuarios = listaUsuarios();
+		ArrayList<Usuario> usuarios = ();
 		int largo = usuarios.size();
 		for(int i=0; i< largo; i++){
 			usuario = usuarios.get(i);
@@ -52,6 +28,7 @@ public class Usuario {
 		}
 		return false;
 	}
+	*/
 	
 	//Este metodo deuelve la forma string de la clase
 	

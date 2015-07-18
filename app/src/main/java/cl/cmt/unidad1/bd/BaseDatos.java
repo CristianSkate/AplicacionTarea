@@ -39,7 +39,7 @@ public class BaseDatos extends SQLiteOpenHelper{
             "(2,'Marisol Vargas','Restobar Mar & Sol','los guindos #20000, La laja','2378736')," +
             "(2,'Carmen Flores','El kioskito','jose luis coo #3025, Puente alto','283928364')," +
             "(2,'Elsa Godoy','El Ratatui','colombia #2555, La florida','938293874')," +
-            "(2,'Carmela Carvajal','La tia Carmela','santa rosa #3600, La pintana','8978765'),";
+            "(2,'Carmela Carvajal','La tia Carmela','santa rosa #3600, La pintana','8978765')";
     private String UPDATE_DB="";
     private final Context context;
 

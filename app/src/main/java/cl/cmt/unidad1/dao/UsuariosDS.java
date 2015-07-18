@@ -23,7 +23,8 @@ public class UsuariosDS {
     private String[] columnas = {"id","nombreUsuario", "loginUsuario", "contrasena"};
     private String tabla = "usuarios";
 
-    public UsuariosDS(Context context, CursorFactory factory){
+    public UsuariosDS(Context context){
+
         dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
@@ -43,11 +44,16 @@ public class UsuariosDS {
         Usuario u = cursorToUsuario(cursor);
         return u;
     }
-    public Usuario loginUsuario(String loginUsuario, String contrasena){
-        Cursor cursor = database.query(tabla,columnas,columnas[2]+"="+loginUsuario+" and "+columnas[3]+"="+contrasena,null,null,null,null);
+    public Boolean loginUsuario(String loginUsuario, String contrasena){
+        Cursor cursor = database.query(tabla,columnas,columnas[2]+"='"+loginUsuario+"' and "+columnas[3]+"='"+contrasena+"'",null,null,null,null);
         cursor.moveToFirst();
         Usuario u = cursorToUsuario(cursor);
-        return u;
+        if (!cursor.isNull(0)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public void eliminarUsuario(Usuario usuario){
@@ -56,8 +62,8 @@ public class UsuariosDS {
         database.delete(tabla,columnas[0]+"="+id,null);
     }
 
-    public List<Usuario> traerTodosLosUsuarios(){
-        List<Usuario> usuarios = new ArrayList<Usuario>();
+    public ArrayList<Usuario> traerTodosLosUsuarios(){
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         Cursor cursor = database.query(tabla,columnas,null,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){

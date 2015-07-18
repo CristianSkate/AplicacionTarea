@@ -1,5 +1,6 @@
 package cl.cmt.unidad1.activity;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import cl.cmt.unidad1.clases.Cliente;
@@ -7,6 +8,8 @@ import cl.cmt.unidad1.clases.Entrega;
 import cl.cmt.unidad1.clases.Pedido;
 import cl.cmt.unidad1.clases.Ubicacion;
 import cl.cmt.unidad1.clases.Usuario;
+import cl.cmt.unidad1.dao.UsuariosDS;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +29,7 @@ public class LoginActivity extends Activity {
 	public static ArrayList<Entrega> entregas = new ArrayList<Entrega>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
 	public static ArrayList<Ubicacion> ubicacionesRegistradas = new ArrayList<Ubicacion>();
+	private UsuariosDS datasource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +52,16 @@ public class LoginActivity extends Activity {
     	//función para validar un usuario
     	EditText txt_login = (EditText)findViewById(R.id.txt_usuario);
     	EditText txt_contrasena = (EditText)findViewById(R.id.txt_contrasena);
-    	
-    	Usuario usuario = new Usuario();
-    	if(usuario.validarUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString())){
+
+		datasource = new UsuariosDS(this);
+		try {
+			datasource.open();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		Usuario usuario = new Usuario();
+    	if(datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString())){
     		Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
     		String login = txt_login.getText().toString();
     		Intent intent = new Intent(LoginActivity.this, MantenedorPrincipal.class);

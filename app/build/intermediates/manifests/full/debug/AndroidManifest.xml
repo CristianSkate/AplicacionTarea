@@ -44,36 +44,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cl.cmt.unidad1.activity.UsuariosActivity"
-            android:label="@string/title_activity_usuarios" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.ClientesActivity"
-            android:label="@string/title_activity_clientes" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.MantenedorClientesActivity"
-            android:label="@string/title_activity_mantenedor_clientes" >
-        </activity>
-        <activity
             android:name="cl.cmt.unidad1.activity.EntregasActivity"
             android:label="@string/title_activity_entregas" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.VerEntregasActivity"
-            android:label="@string/title_activity_ver_entregas" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.VerClientesEliminadosActivity"
-            android:label="@string/title_activity_ver_clientes_eliminados" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.RealizarPedidosActivity"
-            android:label="@string/title_activity_realizar_pedidos" >
-        </activity>
-        <activity
-            android:name="cl.cmt.unidad1.activity.VerPedidosActivity"
-            android:label="@string/title_activity_ver_pedidos" >
         </activity>
         <activity
             android:name="cl.cmt.unidad1.activity.MantenedorPrincipal"
