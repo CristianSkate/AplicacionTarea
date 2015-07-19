@@ -33,7 +33,7 @@ public class PedidosDS {
     public void close(){
         dbHelper.close();
     }
-    public Pedido insertarCliente(String cliente, String producto, String cantidad, String fechaPedido, String fechaEntrega, String total, int idVendedor){
+    public Pedido insertarPedido(String cliente, String producto, String cantidad, String fechaPedido, String fechaEntrega, String total, int idVendedor){
         ContentValues values = new ContentValues();
         values.put(columnas[1], cliente);
         values.put(columnas[2], producto);
