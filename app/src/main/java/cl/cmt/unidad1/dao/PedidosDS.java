@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import cl.cmt.unidad1.bd.BaseDatos;
@@ -33,13 +35,13 @@ public class PedidosDS {
     public void close(){
         dbHelper.close();
     }
-    public Pedido insertarPedido(String cliente, String producto, String cantidad, String fechaPedido, String fechaEntrega, String total, int idVendedor){
+    public Pedido insertarPedido(String cliente, String producto, int cantidad, java.util.Date fechaPedido, java.util.Date fechaEntrega, int total, int idVendedor){
         ContentValues values = new ContentValues();
         values.put(columnas[1], cliente);
         values.put(columnas[2], producto);
         values.put(columnas[3], cantidad);
-        values.put(columnas[4], fechaPedido);
-        values.put(columnas[5], fechaEntrega);
+        values.put(columnas[4], String.valueOf(fechaPedido));
+        values.put(columnas[5], String.valueOf(fechaEntrega));
         values.put(columnas[6], total);
         values.put(columnas[7], idVendedor);
         long insertId = database.insert(tabla,null,values);
@@ -58,7 +60,7 @@ public class PedidosDS {
 
     public void eliminarPedido(Pedido pedido){
         long id = pedido.idPedido;
-        System.out.println("Pedido eliminado con id: "+id);
+        System.out.println("Pedido eliminado con id: " + id);
         database.delete(tabla,columnas[0]+"="+id,null);
     }
 
@@ -74,16 +76,33 @@ public class PedidosDS {
         cursor.close();
         return pedidos;
     }
+    public ArrayList<Pedido> traerMisPedidos(int idVendedor){
+        ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+        Cursor cursor = database.query(tabla,columnas,columnas[7]+"="+idVendedor,null,null,null,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Pedido p = cursorToPedido(cursor);
+            pedidos.add(p);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return pedidos;
+    }
 
 
     public Pedido cursorToPedido(Cursor cursor){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
         Pedido p = new Pedido();
         p.idPedido=cursor.getInt(0);
         p.cliente=cursor.getString(1);
         p.producto=cursor.getString(2);
         p.cantidad=cursor.getInt(3);
-        p.fechaPedido= Date.valueOf(cursor.getString(4));
-        p.fechaEntrega=Date.valueOf(cursor.getString(5));
+        try {
+            p.fechaPedido= dateFormat.parse(cursor.getString(4));
+            p.fechaEntrega=dateFormat.parse(cursor.getString(5));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         p.total=cursor.getInt(6);
         p.idVendedor=cursor.getInt(7);
         return p;

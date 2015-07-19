@@ -29,5 +29,8 @@
         <item
             android:id="@+id/mantenedorMapa"
             android:title="Mapa"/>
+        <item
+            android:id="@+id/salir"
+            android:title="Salir"/>
     </group>
 </menu><!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/menu/drawer_menu.xml -->

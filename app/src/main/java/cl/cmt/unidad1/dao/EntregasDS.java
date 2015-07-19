@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.lang.reflect.Array;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -56,13 +57,25 @@ public class EntregasDS {
 
     public void eliminarEntrega(Entrega entrega){
         long id = entrega.idEntrega;
-        System.out.println("Entrega eliminada con id: "+id);
+        System.out.println("Entrega eliminada con id: " + id);
         database.delete(tabla,columnas[0]+"="+id,null);
     }
 
     public ArrayList<Entrega> traerTodasLasEntregas(){
         ArrayList<Entrega> entregas= new ArrayList<Entrega>();
         Cursor cursor = database.query(tabla,columnas,null,null,null,null,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Entrega e = cursorToEntrega(cursor);
+            entregas.add(e);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return entregas;
+    }
+    public ArrayList<Entrega> traerMisEntregas(int idVendedor){
+        ArrayList<Entrega> entregas = new ArrayList<Entrega>();
+        Cursor cursor = database.query(tabla,columnas, columnas[5]+"="+idVendedor,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Entrega e = cursorToEntrega(cursor);

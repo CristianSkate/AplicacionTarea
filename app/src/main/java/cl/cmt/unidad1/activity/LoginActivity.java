@@ -38,16 +38,20 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         //Aquí está la forma de obtener el control de un botón y asignarle una acción
         Button btn_ingresar = (Button)findViewById(R.id.btn_ingresar);
-        
-        btn_ingresar.setOnClickListener(new OnClickListener(){
+		SharedPreferences prefs= obtenerPreferencias();
+		if(prefs.getInt("idVendedor", 0) != 0) {
+			Intent intent = new Intent (LoginActivity.this, MantenedorPrincipal.class);
+			LoginActivity.this.startActivity(intent);
+		}
+		btn_ingresar.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// acción al presionar el boton
 				validarLoginUsuario();
 			}
-        	
-        });
+
+		});
     }
     
     public void validarLoginUsuario(){
@@ -61,19 +65,18 @@ public class LoginActivity extends Activity {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		Usuario usuario = datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString());
-    	if(usuario!=null){
-    		Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
-    		prefs.edit().putInt("idVendedor", usuario.id_usuario).apply(); //para buscar clientes
-			prefs.edit().putString("nombreVendedor", usuario.nombre_usuario).apply();
-    		Intent intent = new Intent(LoginActivity.this, MantenedorPrincipal.class);
-    		txt_login.setText("");
-        	txt_contrasena.setText("");
-        	LoginActivity.this.startActivity(intent);
-    	}else{
-    		Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-    	}
+			Usuario usuario = datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString());
+			if (usuario != null) {
+				Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
+				prefs.edit().putInt("idVendedor", usuario.id_usuario).apply(); //para buscar clientes
+				prefs.edit().putString("nombreVendedor", usuario.nombre_usuario).apply();
+				Intent intent = new Intent(LoginActivity.this, MantenedorPrincipal.class);
+				txt_login.setText("");
+				txt_contrasena.setText("");
+				LoginActivity.this.startActivity(intent);
+			} else {
+				Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+			}
     }
 
 	public SharedPreferences obtenerPreferencias(){

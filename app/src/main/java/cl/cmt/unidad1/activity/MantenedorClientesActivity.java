@@ -34,7 +34,7 @@ public class MantenedorClientesActivity extends Fragment {
 		final Button btnEliminar = (Button)v.findViewById(R.id.btnEliminarCliente);
 		final Button btnLimpiar = (Button)v.findViewById(R.id.btnLimpiarCliente);
 		
-		txtIdCliente.setOnFocusChangeListener(new OnFocusChangeListener(){
+		/*txtIdCliente.setOnFocusChangeListener(new OnFocusChangeListener(){
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
@@ -64,7 +64,7 @@ public class MantenedorClientesActivity extends Fragment {
 			}
 			
 		});
-		
+		*/
 		btnGuardar.setOnClickListener(new OnClickListener(){
 
 			@Override

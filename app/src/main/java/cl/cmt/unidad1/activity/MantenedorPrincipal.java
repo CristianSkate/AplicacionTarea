@@ -1,6 +1,10 @@
 package cl.cmt.unidad1.activity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import cl.cmt.unidad1.servicios.RegistraUbicacion;
@@ -118,6 +123,11 @@ public class MantenedorPrincipal extends AppCompatActivity {
             case R.id.verUbicacionesRegistradas:
                 fragmentClass = VerUbicacionesRegistradasActivity.class;
                 break;
+            case R.id.salir:
+                SharedPreferences prefs = getSharedPreferences("staticVars", Context.MODE_PRIVATE);
+                prefs.edit().clear().apply();
+                finish();
+                break;
             default:
                 fragmentClass = ClientesActivity.class;
         }
@@ -180,5 +190,11 @@ public class MantenedorPrincipal extends AppCompatActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Toast.makeText(getApplicationContext(), "Para salir presione salir en el menú", Toast.LENGTH_SHORT).show();
+        return;
+    }
 
 }

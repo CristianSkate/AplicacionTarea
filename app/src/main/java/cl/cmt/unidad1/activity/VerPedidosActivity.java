@@ -2,11 +2,14 @@ package cl.cmt.unidad1.activity;
 
 import cl.cmt.unidad1.adapters.PedidosAdapter;
 import cl.cmt.unidad1.clases.Pedido;
+import cl.cmt.unidad1.dao.PedidosDS;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,9 +25,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class VerPedidosActivity extends Fragment {
 	public static ArrayAdapter<Pedido> adapter;
-
+	public PedidosDS datasource;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,10 +41,18 @@ public class VerPedidosActivity extends Fragment {
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-	View v = getView();
-
+		View v = getView();
+		datasource = new PedidosDS(getActivity());
+		try {
+			datasource.open();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		ListView lvPedidos = (ListView)v.findViewById(R.id.lvPedidos);
-		adapter = new PedidosAdapter(getActivity(), LoginActivity.pedidos);
+		SharedPreferences prefs = getActivity().getSharedPreferences("staticVars", Context.MODE_PRIVATE);
+		int idVendedor = prefs.getInt("idVendedor", 0);
+		ArrayList<Pedido> pedidos = datasource.traerMisPedidos(idVendedor);
+		adapter = new PedidosAdapter(getActivity(), pedidos);
 		lvPedidos.setAdapter(adapter);
 		adapter.notifyDataSetChanged();
 		

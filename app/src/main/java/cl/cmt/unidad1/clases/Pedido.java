@@ -24,7 +24,7 @@ public class Pedido {
 				+String.valueOf(this.idPedido) + ": "+this.cliente +System.getProperty("line.separator")
 				 +"Producto "+this.cantidad+" "+ this.producto +System.getProperty("line.separator")
 				  +"Total $"+String.valueOf(this.total)+System.getProperty("line.separator")
-				   +"Fecha entrega: "+String.valueOf(dateFormat.format(this.fechaEntrega)); 
+				   +"Fecha entrega: "+String.valueOf(dateFormat.format(this.fechaEntrega));
 	}
 	
 }

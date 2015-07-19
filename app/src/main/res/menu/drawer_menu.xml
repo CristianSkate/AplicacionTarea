@@ -29,5 +29,8 @@
         <item
             android:id="@+id/mantenedorMapa"
             android:title="Mapa"/>
+        <item
+            android:id="@+id/salir"
+            android:title="Salir"/>
     </group>
 </menu>
