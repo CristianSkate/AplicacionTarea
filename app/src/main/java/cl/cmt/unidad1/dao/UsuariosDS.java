@@ -2,6 +2,7 @@ package cl.cmt.unidad1.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -44,21 +45,22 @@ public class UsuariosDS {
         Usuario u = cursorToUsuario(cursor);
         return u;
     }
-    public Boolean loginUsuario(String loginUsuario, String contrasena){
+    public Usuario loginUsuario(String loginUsuario, String contrasena){
         Cursor cursor = database.query(tabla,columnas,columnas[2]+"='"+loginUsuario+"' and "+columnas[3]+"='"+contrasena+"'",null,null,null,null);
         cursor.moveToFirst();
         Usuario u = cursorToUsuario(cursor);
         if (!cursor.isNull(0)){
-            return true;
+
+            return u;
         }
         else{
-            return false;
+            return null;
         }
     }
 
     public void eliminarUsuario(Usuario usuario){
         long id = usuario.id_usuario;
-        System.out.println("Usuario eliminado con id: "+id);
+        System.out.println("Usuario eliminado con id: " + id);
         database.delete(tabla,columnas[0]+"="+id,null);
     }
 
@@ -84,5 +86,6 @@ public class UsuariosDS {
         u.contrasena=cursor.getString(3);
         return u;
     }
+
 
 }

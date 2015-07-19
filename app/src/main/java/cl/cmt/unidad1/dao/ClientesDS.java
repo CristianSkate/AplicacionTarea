@@ -55,13 +55,26 @@ public class ClientesDS {
 
     public void eliminarCliente(Cliente cliente){
         long id = cliente.id_cliente;
-        System.out.println("Cliente eliminado con id: "+id);
+        System.out.println("Cliente eliminado con id: " + id);
         database.delete(tabla,columnas[0]+"="+id,null);
     }
 
     public ArrayList<Cliente> traerTodosLosClientes(){
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         Cursor cursor = database.query(tabla,columnas,null,null,null,null,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Cliente c = cursorToCliente(cursor);
+            clientes.add(c);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return clientes;
+    }
+
+    public ArrayList<Cliente> traerMisClientes(int idVendedor){
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        Cursor cursor = database.query(tabla,columnas,columnas[5]+"="+idVendedor,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Cliente c = cursorToCliente(cursor);

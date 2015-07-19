@@ -11,7 +11,9 @@ import cl.cmt.unidad1.clases.Usuario;
 import cl.cmt.unidad1.dao.UsuariosDS;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -52,7 +54,7 @@ public class LoginActivity extends Activity {
     	//función para validar un usuario
     	EditText txt_login = (EditText)findViewById(R.id.txt_usuario);
     	EditText txt_contrasena = (EditText)findViewById(R.id.txt_contrasena);
-
+		SharedPreferences prefs= obtenerPreferencias();
 		datasource = new UsuariosDS(this);
 		try {
 			datasource.open();
@@ -60,32 +62,24 @@ public class LoginActivity extends Activity {
 			e.printStackTrace();
 		}
 
-		Usuario usuario = new Usuario();
-    	if(datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString())){
+		Usuario usuario = datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString());
+    	if(usuario!=null){
     		Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
-    		String login = txt_login.getText().toString();
+    		prefs.edit().putInt("idVendedor", usuario.id_usuario).apply(); //para buscar clientes
+			prefs.edit().putString("nombreVendedor", usuario.nombre_usuario).apply();
     		Intent intent = new Intent(LoginActivity.this, MantenedorPrincipal.class);
-    		Cliente cliente = new Cliente();
-    		if(login.equals("cmartinez")){
-    			clientes= cliente.listaClientes();
-    		}else
-    		{
-    			clientes= cliente.listaClientes1();
-    		}
-    		//intent.putExtra("login", login);
     		txt_login.setText("");
         	txt_contrasena.setText("");
-        	//Agregamos una variable a nuestro intent para validar usuario	
-        		
         	LoginActivity.this.startActivity(intent);
-    			
-    		   		
-    		
-    				
     	}else{
     		Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
     	}
     }
+
+	public SharedPreferences obtenerPreferencias(){
+		SharedPreferences prefs = this.getSharedPreferences("staticVars", Context.MODE_PRIVATE);
+		return prefs;
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
