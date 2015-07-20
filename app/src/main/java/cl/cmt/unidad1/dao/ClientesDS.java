@@ -43,6 +43,37 @@ public class ClientesDS {
         Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
         cursor.moveToFirst();
         Cliente c = cursorToCliente(cursor);
+        cursor.close();
+        return c;
+    }
+
+    public Cliente insertarClienteEliminado(String nombre, String nombreNegocio, String direccion, String telefono, int idVendedor){
+        ContentValues values = new ContentValues();
+        values.put(columnas[1], nombre);
+        values.put(columnas[2], nombreNegocio);
+        values.put(columnas[3], direccion);
+        values.put(columnas[4], telefono);
+        values.put(columnas[5], idVendedor);
+        long insertId = database.insert("clientes_eliminados",null,values);
+        Cursor cursor = database.query("clientes_eliminados",columnas,columnas[0]+"="+insertId, null,null,null,null);
+        cursor.moveToFirst();
+        Cliente c = cursorToCliente(cursor);
+        cursor.close();
+        return c;
+    }
+
+    public Cliente actualizarCliente(int idCliente, String nombre, String nombreNegocio, String direccion, String telefono, int idVendedor){
+        ContentValues values = new ContentValues();
+        values.put(columnas[1], nombre);
+        values.put(columnas[2], nombreNegocio);
+        values.put(columnas[3], direccion);
+        values.put(columnas[4], telefono);
+        values.put(columnas[5], idVendedor);
+        database.update(tabla, values, columnas[0] + "=" + idCliente, null);
+        Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+idCliente,null,null,null,null);
+        cursor.moveToFirst();
+        Cliente c = cursorToCliente(cursor);
+        cursor.close();
         return c;
     }
 
@@ -50,18 +81,31 @@ public class ClientesDS {
         Cursor cursor = database.query(tabla,columnas, columnas[0]+"="+id,null,null,null,null);
         cursor.moveToFirst();
         Cliente c = cursorToCliente(cursor);
+        cursor.close();
         return c;
     }
 
     public void eliminarCliente(Cliente cliente){
         long id = cliente.id_cliente;
         System.out.println("Cliente eliminado con id: " + id);
-        database.delete(tabla,columnas[0]+"="+id,null);
+        database.delete(tabla, columnas[0] + "=" + id, null);
     }
 
     public ArrayList<Cliente> traerTodosLosClientes(){
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         Cursor cursor = database.query(tabla,columnas,null,null,null,null,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Cliente c = cursorToCliente(cursor);
+            clientes.add(c);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return clientes;
+    }
+    public ArrayList<Cliente> traerMisClientesEliminados(int idVendedor){
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        Cursor cursor = database.query("clientes_eliminados",columnas,columnas[5]+"="+idVendedor,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Cliente c = cursorToCliente(cursor);

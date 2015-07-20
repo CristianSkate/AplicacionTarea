@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 public class VerPedidosActivity extends Fragment {
 	public static ArrayAdapter<Pedido> adapter;
+	ArrayList<Pedido> pedidos;
 	public PedidosDS datasource;
 
 	@Override
@@ -51,7 +52,7 @@ public class VerPedidosActivity extends Fragment {
 		ListView lvPedidos = (ListView)v.findViewById(R.id.lvPedidos);
 		SharedPreferences prefs = getActivity().getSharedPreferences("staticVars", Context.MODE_PRIVATE);
 		int idVendedor = prefs.getInt("idVendedor", 0);
-		ArrayList<Pedido> pedidos = datasource.traerMisPedidos(idVendedor);
+		pedidos = datasource.traerMisPedidos(idVendedor);
 		adapter = new PedidosAdapter(getActivity(), pedidos);
 		lvPedidos.setAdapter(adapter);
 		adapter.notifyDataSetChanged();
@@ -79,7 +80,8 @@ public class VerPedidosActivity extends Fragment {
             public void onClick(DialogInterface dialogo1, int id) {  
             	
             	Intent intent = new Intent(getActivity(), EntregasActivity.class);
-				intent.putExtra("index", index);
+				int idPedido = pedidos.get(index).idPedido;
+				intent.putExtra("idPedido", idPedido);
 				startActivity(intent);
             	
             }  

@@ -51,7 +51,7 @@ public class PedidosDS {
         return p;
     }
 
-    public Pedido buscarPedidoPorId(String id){
+    public Pedido buscarPedidoPorId(int id){
         Cursor cursor = database.query(tabla,columnas, columnas[0]+"="+id,null,null,null,null);
         cursor.moveToFirst();
         Pedido p = cursorToPedido(cursor);

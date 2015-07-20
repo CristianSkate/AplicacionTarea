@@ -17,6 +17,8 @@ public class BaseDatos extends SQLiteOpenHelper{
             "nombreUsuario text, loginUsuario text, contrasena text)";
     private String CREATE_TABLE_CLIENTES = "create table clientes(id integer primary key autoincrement," +
             "nombre text, nombreNegocio text, direccion text, telefono text, idVendedor integer, FOREIGN KEY (idVendedor) references usuarios(id))";
+    private String CREATE_TABLE_CLIENTES_ELIMINADOS = "create table clientes_eliminados(id integer primary key autoincrement," +
+            "nombre text, nombreNegocio text, direccion text, telefono text, idVendedor integer, FOREIGN KEY (idVendedor) references usuarios(id))";
     private String CREATE_TABLE_ENTREGAS = "create table entregas(id integer primary key autoincrement," +
             "cliente text, producto text, cantidad text, fechaEntrega date, total integer, idVendedor integer, FOREIGN KEY (idVendedor) references usuarios(id))";
     private String CREATE_TABLE_PEDIDOS = "create table pedidos(id integer primary key autoincrement," +
@@ -55,6 +57,7 @@ public class BaseDatos extends SQLiteOpenHelper{
             }
         db.execSQL(CREATE_TABLE_USUARIOS);
         db.execSQL(CREATE_TABLE_CLIENTES);
+        db.execSQL(CREATE_TABLE_CLIENTES_ELIMINADOS);
         db.execSQL(CREATE_TABLE_PRODUCTOS);
         db.execSQL(CREATE_TABLE_UBICACIONES);
         db.execSQL(CREATE_TABLE_PEDIDOS);

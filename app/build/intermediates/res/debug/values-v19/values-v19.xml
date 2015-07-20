@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/values-v19/styles.xml -->
+    <!-- From: file:/C:/Users/cmartinez/Desktop/CMT/StudioProjects/AplicacionTarea/app/src/main/res/values-v19/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#ff0c0026</item>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/values-v11/styles.xml -->
+    <!-- From: file:/C:/Users/cmartinez/Desktop/CMT/StudioProjects/AplicacionTarea/app/src/main/res/values-v11/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
@@ -10,7 +10,7 @@
         <item name="colorPrimaryDark">#ff39a82c</item>
         <item name="colorAccent">#ff2c8ccb</item>
     </style>
-    <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v11/values-v11.xml -->
+    <!-- From: file:/C:/Users/cmartinez/Desktop/CMT/StudioProjects/AplicacionTarea/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v11/values-v11.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat.Inverse">
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
