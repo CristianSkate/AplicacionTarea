@@ -43,6 +43,7 @@ public class UsuariosDS {
         Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
         cursor.moveToFirst();
         Usuario u = cursorToUsuario(cursor);
+        cursor.close();
         return u;
     }
     public Usuario loginUsuario(String loginUsuario, String contrasena){
@@ -50,10 +51,11 @@ public class UsuariosDS {
         cursor.moveToFirst();
         Usuario u = cursorToUsuario(cursor);
         if (!cursor.isNull(0)){
-
+            cursor.close();
             return u;
         }
         else{
+            cursor.close();
             return null;
         }
     }

@@ -48,6 +48,7 @@ public class EntregasDS {
         Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
         cursor.moveToFirst();
         Entrega e = cursorToEntrega(cursor);
+        cursor.close();
         return e;
     }
 
@@ -55,6 +56,7 @@ public class EntregasDS {
         Cursor cursor = database.query(tabla,columnas, columnas[0]+"="+id,null,null,null,null);
         cursor.moveToFirst();
         Entrega e = cursorToEntrega(cursor);
+        cursor.close();
         return e;
     }
 

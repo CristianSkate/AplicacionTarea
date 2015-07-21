@@ -43,6 +43,7 @@ public class UbicacionesDS {
         Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
         cursor.moveToFirst();
         Ubicacion u = cursorToUbicacion(cursor);
+        cursor.close();
         return u;
     }
 
@@ -50,12 +51,24 @@ public class UbicacionesDS {
     public void eliminarUbicacion(Ubicacion ubicacion){
         long id = ubicacion.idUbicacion;
         System.out.println("Ubicacion eliminada con id: "+id);
-        database.delete(tabla,columnas[0]+"="+id,null);
+        database.delete(tabla, columnas[0] + "=" + id, null);
     }
 
     public ArrayList<Ubicacion> traerTodasLasUbicaciones(){
         ArrayList<Ubicacion> ubicaciones= new ArrayList<Ubicacion>();
         Cursor cursor = database.query(tabla,columnas,null,null,null,null,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Ubicacion u = cursorToUbicacion(cursor);
+            ubicaciones.add(u);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return ubicaciones;
+    }
+    public ArrayList<Ubicacion> traerMisUbicaciones(int idVendedor){
+        ArrayList<Ubicacion> ubicaciones = new ArrayList<Ubicacion>();
+        Cursor cursor = database.query(tabla,columnas,columnas[1]+"="+idVendedor,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Ubicacion u = cursorToUbicacion(cursor);

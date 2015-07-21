@@ -41,6 +41,7 @@ public class ProductosDS {
         Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
         cursor.moveToFirst();
         Producto p = cursorToProducto(cursor);
+        cursor.close();
         return p;
     }
 
@@ -48,6 +49,7 @@ public class ProductosDS {
         Cursor cursor = database.query(tabla,columnas, columnas[0]+"="+id,null,null,null,null);
         cursor.moveToFirst();
         Producto p = cursorToProducto(cursor);
+        cursor.close();
         return p;
     }
 

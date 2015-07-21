@@ -27,10 +27,6 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 	public static ArrayList<Cliente> clientes;
-	public static ArrayList<Cliente> eliminados = new ArrayList<Cliente>();
-	public static ArrayList<Entrega> entregas = new ArrayList<Entrega>();
-	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
-	public static ArrayList<Ubicacion> ubicacionesRegistradas = new ArrayList<Ubicacion>();
 	private UsuariosDS datasource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,7 +1,9 @@
 package cl.cmt.unidad1.servicios;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -17,6 +19,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
@@ -24,6 +27,7 @@ import java.util.Locale;
 import cl.cmt.unidad1.activity.LoginActivity;
 import cl.cmt.unidad1.activity.VerUbicacionesRegistradasActivity;
 import cl.cmt.unidad1.clases.Ubicacion;
+import cl.cmt.unidad1.dao.UbicacionesDS;
 
 public class RegistraUbicacion extends Service implements LocationListener{
     private static final long MIN_DISTANCE = 5; // distancia mínima
@@ -32,6 +36,7 @@ public class RegistraUbicacion extends Service implements LocationListener{
     private String mProvider; // variable para proveedor
     public String TAG="IP";
     private Criteria criteria;
+    public UbicacionesDS datasource;
 
 
     @Override
@@ -63,13 +68,23 @@ public class RegistraUbicacion extends Service implements LocationListener{
 
     @Override
     public void onLocationChanged(Location location) {
+        datasource = new UbicacionesDS(this.getApplication());
         Ubicacion ub = new Ubicacion();
         ub.latitud = String.valueOf(location.getLatitude());
         ub.longitud = String.valueOf(location.getLongitude());
         ub.ip = getLocalIpAddress();
         ub.direccion = obtenerDireccion(ub.latitud, ub.longitud);
-
-        LoginActivity.ubicacionesRegistradas.add(ub);
+        try {
+            datasource.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SharedPreferences prefs = getSharedPreferences("staticVars", Context.MODE_PRIVATE);
+        ub.idUsuario=prefs.getInt("idVendedor", 0);
+        Ubicacion a = datasource.insertarUbicacion(ub.idUsuario,ub.latitud,ub.longitud,ub.ip,ub.direccion);
+        if(a!=null){
+            System.out.println("Se insertó ubicación:" + a.toString());
+        }
         if (VerUbicacionesRegistradasActivity.adapter != null) {
             VerUbicacionesRegistradasActivity.adapter.notifyDataSetChanged();
         }

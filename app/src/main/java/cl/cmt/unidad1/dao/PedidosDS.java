@@ -45,9 +45,10 @@ public class PedidosDS {
         values.put(columnas[6], total);
         values.put(columnas[7], idVendedor);
         long insertId = database.insert(tabla,null,values);
-        Cursor cursor = database.query(tabla,columnas,columnas[0]+"="+insertId, null,null,null,null);
+        Cursor cursor = database.query(tabla, columnas, columnas[0] + "=" + insertId, null, null, null, null);
         cursor.moveToFirst();
         Pedido p = cursorToPedido(cursor);
+        cursor.close();
         return p;
     }
 
@@ -55,6 +56,7 @@ public class PedidosDS {
         Cursor cursor = database.query(tabla,columnas, columnas[0]+"="+id,null,null,null,null);
         cursor.moveToFirst();
         Pedido p = cursorToPedido(cursor);
+        cursor.close();
         return p;
     }
 

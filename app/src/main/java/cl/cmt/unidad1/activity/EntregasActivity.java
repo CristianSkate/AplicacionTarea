@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class EntregasActivity extends Activity {
-	public static ArrayList<Producto> prods = new ArrayList<Producto>();
 	public Pedido pedido;
 	public PedidosDS datasourcePe;
 	public EntregasDS datasourceEn;
