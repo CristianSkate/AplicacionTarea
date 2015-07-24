@@ -1,15 +1,14 @@
-Titulo del trabajo: desarrollo de una aplicación móvil en Android
+Titulo del trabajo: desarrollo de una aplicación móvil avanzada en Android
 Alumno: Cristian Martinez Toledo
 Profesor: Cristian Correa
 GitHub: https://github.com/CristianSkate/AplicacionTarea
 
 La aplicación tiene 2 usuarios para ingresar, cmartinez/abc123 y juan/juan
 
-Se implemento el servicio que registra la ubicación del usuario cada 3 minuos
-guardando latitud, longitud, ip y dirección (Calle, numeracion aproximada, ciudad, país)
+-En esta version se implementó el uso de una base de datos sqlite para el almacenamiento de la información.
+-Tambien se trabajó para evitar logins repetitivos cada vez que se abra la aplicación, guardando la informacion la primera vez que se loguea y teniendo la posibilidad de desloguearse de la aplicación.
+-Se trabajó para evitar las salidas no deseadas de la aplicación al presionar el boton retroceso.
+*Queda pendiente la generación de rutas y pruebas junit para operaciones crud.
 
-Se implementó una prueba de jUnint para testear la función validarUsuario usada para login
-
-Además se agregó un mapa que por el momento indica la ubicación del usuario
 
 
