@@ -5,7 +5,9 @@ import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import android.app.DatePickerDialog;
 
 import cl.cmt.unidad1.clases.Cliente;
 import cl.cmt.unidad1.clases.Pedido;
@@ -15,9 +17,11 @@ import cl.cmt.unidad1.dao.PedidosDS;
 import cl.cmt.unidad1.dao.ProductosDS;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
@@ -31,6 +35,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -41,6 +46,8 @@ public class RealizarPedidosActivity extends Fragment {
 	public ClientesDS datasourceCl;
 	public ProductosDS datasourcePr;
 	public PedidosDS datasourcePe;
+	public static String fechaEntrega;
+	public static EditText txtFechaEntrega;
 	@Override
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,9 +63,10 @@ public class RealizarPedidosActivity extends Fragment {
 		final Button btnGuardar = (Button)v.findViewById(R.id.btnPedGuardar);
 	    final EditText txtCantidad=(EditText)v.findViewById(R.id.txtPedCantidad);
 	    final EditText txtTotal=(EditText)v.findViewById(R.id.txtPedTotal);
-	    final EditText txtFechaEntrega=(EditText)v.findViewById(R.id.txtPedFecha);
+	    txtFechaEntrega=(EditText)v.findViewById(R.id.txtPedFecha);
 	    final Spinner spnClientes = (Spinner)v.findViewById(R.id.spnPedClientes);
 	    final Spinner spnProductos=(Spinner)v.findViewById(R.id.spnPedProductos);
+		final Button btnSelFecha=(Button)v.findViewById(R.id.btnSelFecha);
 	    
 
 	    txtFechaEntrega.setHint("dd/mm/yyyy");
@@ -85,44 +93,44 @@ public class RealizarPedidosActivity extends Fragment {
 		spnProductos.setAdapter(productos);
 		productos.notifyDataSetChanged();
 		
-		spnProductos.setOnItemSelectedListener(new OnItemSelectedListener(){
+		spnProductos.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
+									   int position, long id) {
 
-				
+
 				int precio = prods.get(position).precio;
-				if(!txtCantidad.getText().toString().equals("")){
-					txtTotal.setText(precio*Integer.parseInt(txtCantidad.getText().toString()));
+				if (!txtCantidad.getText().toString().equals("")) {
+					txtTotal.setText(precio * Integer.parseInt(txtCantidad.getText().toString()));
 				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
 
-				
+
 			}
 
-			
+
 		});
 	
-		txtCantidad.setOnFocusChangeListener(new OnFocusChangeListener(){
+		txtCantidad.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 
-				if(!hasFocus){
-				int precio=prods.get(spnProductos.getSelectedItemPosition()).precio;
-				    if(!txtCantidad.getText().toString().equals("")){
-					    txtTotal.setText(String.valueOf(precio*Integer.parseInt(txtCantidad.getText().toString())));
-				    }
-			    }
+				if (!hasFocus) {
+					int precio = prods.get(spnProductos.getSelectedItemPosition()).precio;
+					if (!txtCantidad.getText().toString().equals("")) {
+						txtTotal.setText(String.valueOf(precio * Integer.parseInt(txtCantidad.getText().toString())));
+					}
+				}
 			}
-			
-		});
 
+		});
+		txtFechaEntrega.setEnabled(false);
 		txtFechaEntrega.setOnFocusChangeListener(new OnFocusChangeListener(){
 
 			@Override
@@ -133,6 +141,14 @@ public class RealizarPedidosActivity extends Fragment {
 				}
 			}
 			
+		});
+
+		btnSelFecha.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DialogFragment newFragment = new DatePickerFragment();
+				newFragment.show(getActivity().getSupportFragmentManager(), "datPicker");
+			}
 		});
 
 		btnGuardar.setOnClickListener(new OnClickListener(){
@@ -165,5 +181,26 @@ public class RealizarPedidosActivity extends Fragment {
 			
 		});
 	
+	}
+	public static class DatePickerFragment extends DialogFragment
+			implements DatePickerDialog.OnDateSetListener {
+
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			// Use the current date as the default date in the picker
+			final Calendar c = Calendar.getInstance();
+			int year = c.get(Calendar.YEAR);
+			int month = c.get(Calendar.MONTH);
+			int day = c.get(Calendar.DAY_OF_MONTH);
+
+			// Create a new instance of DatePickerDialog and return it
+			return new DatePickerDialog(getActivity(), this, year, month, day);
+		}
+
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			// Do something with the date chosen by the user
+
+			txtFechaEntrega.setText(String.valueOf(day)+"/"+String.valueOf(month)+"/"+String.valueOf(year));
+		}
 	}
 }
