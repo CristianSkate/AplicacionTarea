@@ -21,9 +21,10 @@ public class ClientesDS {
     private BaseDatos dbHelper;
     private String[] columnas = {"id","nombre", "nombreNegocio", "direccion","telefono","idVendedor"};
     private String tabla = "clientes";
+    private Context ctx;
 
     public ClientesDS(Context context){
-
+        this.ctx=context;
         dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
@@ -131,7 +132,7 @@ public class ClientesDS {
 
 
     public Cliente cursorToCliente(Cursor cursor){
-        Cliente c = new Cliente();
+        Cliente c = new Cliente(ctx);
         c.id_cliente=cursor.getInt(0);
         c.nombre_cliente=cursor.getString(1);
         c.nombre_negocio=cursor.getString(2);

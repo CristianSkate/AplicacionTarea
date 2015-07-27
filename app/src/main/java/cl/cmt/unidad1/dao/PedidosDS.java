@@ -24,9 +24,10 @@ public class PedidosDS {
     private BaseDatos dbHelper;
     private String[] columnas = {"id","cliente", "producto","cantidad","fechaPedido","fechaEntrega","total","idVendedor"};
     private String tabla = "pedidos";
+    private Context ctx;
 
     public PedidosDS(Context context){
-
+        this.ctx=context;
         dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
@@ -94,7 +95,7 @@ public class PedidosDS {
 
     public Pedido cursorToPedido(Cursor cursor){
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-        Pedido p = new Pedido();
+        Pedido p = new Pedido(ctx);
         p.idPedido=cursor.getInt(0);
         p.cliente=cursor.getString(1);
         p.producto=cursor.getString(2);

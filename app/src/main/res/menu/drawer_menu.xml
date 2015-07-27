@@ -3,34 +3,34 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
-            android:title="Mis Clientes"
+            android:title="@string/txtMisClientes"
             android:checked="true"/>
         <item
             android:id="@+id/nav_second_fragment"
-            android:title="Realizar Pedido" />
+            android:title="@string/txtRealizarPedido" />
         <item
             android:id="@+id/nav_third_fragment"
-            android:title="Administrar Clientes" />
+            android:title="@string/txtAdministrarClientes" />
         <item
             android:id="@+id/nav_four_fragment"
-            android:title="Ver pedidos" />
+            android:title="@string/txtVerpedidos" />
         <item
             android:id="@+id/nav_fifth_fragment"
-            android:title="Ver entregas" />
+            android:title="@string/txtVerEntregas" />
         <item
             android:id="@+id/nav_sixth_fragment"
-            android:title="Ver clientes eliminados" />
+            android:title="@string/txtVerClientesEliminados" />
         <item
             android:id="@+id/nav_seventh_fragment"
-            android:title="Ver usuarios" />
+            android:title="@string/txtVerUsuarios" />
         <item
             android:id="@+id/verUbicacionesRegistradas"
-            android:title="Ver ubicaciones registradas"/>
+            android:title="@string/txtVerUbicacionesRegistradas"/>
         <item
             android:id="@+id/mantenedorMapa"
-            android:title="Mapa"/>
+            android:title="@string/txtMapa"/>
         <item
             android:id="@+id/salir"
-            android:title="Salir"/>
+            android:title="@string/txtSalir"/>
     </group>
 </menu>

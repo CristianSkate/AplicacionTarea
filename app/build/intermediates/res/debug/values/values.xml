@@ -294,6 +294,11 @@
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="RelleneTodosLosCampos">Rellene todos los campos</string>
+    <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -316,7 +321,7 @@
     <string name="accept">Accept</string>
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Preferencias</string>
     <string name="app_name">Primera Aplicacion</string>
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
@@ -358,9 +363,8 @@
     <string name="decline">Decline</string>
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="drawer_close">Cerrar navigation drawer</string>
+    <string name="drawer_open">Abrir navigation drawer</string>
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -379,6 +383,54 @@
     <string name="title_activity_ver_clientes_eliminados">Clientes Eliminados</string>
     <string name="title_activity_ver_entregas">Mis Entregas</string>
     <string name="title_activity_ver_pedidos">Pedidos Pendientes</string>
+    <string name="txtAdministrarClientes">Administrar Clientes</string>
+    <string name="txtAlgoFueMal">Algo salió mal</string>
+    <string name="txtBienvenido">Bienvenido</string>
+    <string name="txtCancelar">Cancelar</string>
+    <string name="txtCantidad">Cantidad</string>
+    <string name="txtCliente">Cliente</string>
+    <string name="txtClienteActualizado">Cliente actualizado con éxito</string>
+    <string name="txtClienteEliminado">Se eliminó el cliente con exito</string>
+    <string name="txtClienteInsertado">Cliente insertado con éxito id: </string>
+    <string name="txtClienteNoExiste">El cliente seleccionado no existe</string>
+    <string name="txtConfirmacion">Confirmación</string>
+    <string name="txtContrasena">Contraseña</string>
+    <string name="txtDeseaRealizarEntrega">¿Desea realizar la entrega ahora?</string>
+    <string name="txtDireccion">Dirección</string>
+    <string name="txtDireccionCliente">Dirección Cliente</string>
+    <string name="txtEliminar">Eliminar</string>
+    <string name="txtEntregaRegistradaConExito">Entrega registrada con exito</string>
+    <string name="txtEscribeFechaBien">Escriba bien la fecha de entrega</string>
+    <string name="txtFecha">Fecha</string>
+    <string name="txtFechaEntrega">Fecha de Entrega</string>
+    <string name="txtFechaPedido">Fecha Pedido</string>
+    <string name="txtGuardar">Guardar</string>
+    <string name="txtIdCliente">Id del Cliente</string>
+    <string name="txtIngresar">Ingresar</string>
+    <string name="txtIp">Dirección IP</string>
+    <string name="txtLatitud">Latitud</string>
+    <string name="txtLimpiar">Limpiar</string>
+    <string name="txtLongitud">Longitud</string>
+    <string name="txtMapa">Mapa</string>
+    <string name="txtMisClientes">Mis Clientes</string>
+    <string name="txtNombreCliente">Nombre Cliente</string>
+    <string name="txtNombreNegocio">Nombre Negocio</string>
+    <string name="txtParaSalirPresione">Para salir presione salir en el menú</string>
+    <string name="txtPedidoAgregado">Pedido agregado con éxito</string>
+    <string name="txtProducto">Producto</string>
+    <string name="txtRealizarPedido">Realizar Pedido</string>
+    <string name="txtSalir">Salir</string>
+    <string name="txtTelefono">Teléfono</string>
+    <string name="txtTelefonoCliente">Teléfono Cliente</string>
+    <string name="txtTituloRealizarEntrega">Confirmar Entrega</string>
+    <string name="txtTotal">Total</string>
+    <string name="txtUsuario">Usuario</string>
+    <string name="txtUsuarioPasswordIncorrectos">Usuario o contraseña incorrectos</string>
+    <string name="txtVerClientesEliminados">Ver Clientes Eliminados</string>
+    <string name="txtVerEntregas">Ver Entrega</string>
+    <string name="txtVerUbicacionesRegistradas">Ubicaciones registradas</string>
+    <string name="txtVerUsuarios">Ver Usuarios</string>
+    <string name="txtVerpedidos">Ver Pedidos</string>
     <!-- From: file:/C:/Users/Cristian/StudioProjects/PrimeraAplicacion/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>

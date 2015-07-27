@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="23dp"
         android:layout_marginTop="40dp"
-        android:text="Cliente" />
+        android:text="@string/txtCliente" />
 
     <Spinner
         android:id="@+id/spnPedClientes"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spnPedClientes"
         android:layout_below="@+id/spnPedClientes"
-        android:text="Producto" />
+        android:text="@string/txtProducto" />
 
     <Spinner
         android:id="@+id/spnPedProductos"
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spnPedProductos"
         android:layout_below="@+id/spnPedProductos"
-        android:text="Cantidad" />
+        android:text="@string/txtCantidad" />
 
     <EditText
         android:id="@+id/txtPedCantidad"
@@ -60,8 +60,6 @@
         android:layout_below="@+id/textView3"
         android:ems="10"
         android:inputType="number" >
-
-        <requestFocus />
     </EditText>
 
     <TextView
@@ -70,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtPedCantidad"
         android:layout_below="@+id/txtPedCantidad"
-        android:text="Total" />
+        android:text="@string/txtTotal" />
 
     <EditText
         android:id="@+id/txtPedTotal"
@@ -87,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtPedTotal"
         android:layout_below="@+id/txtPedTotal"
-        android:text="Fecha entrega" />
+        android:text="@string/txtFechaEntrega" />
 
     <EditText
         android:id="@+id/txtPedFecha"
@@ -105,7 +103,7 @@
         android:layout_alignLeft="@+id/txtPedFecha"
         android:layout_below="@+id/txtPedFecha"
         android:layout_marginTop="16dp"
-        android:text="Guardar" />
+        android:text="@string/txtGuardar" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

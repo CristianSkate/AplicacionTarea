@@ -157,7 +157,7 @@ public class RealizarPedidosActivity extends Fragment {
 			public void onClick(View v) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 				final Date date = new Date();
-				Pedido pedido = new Pedido();
+				Pedido pedido = new Pedido(getActivity().getApplicationContext());
 
 				pedido.cliente = c.get(spnClientes.getSelectedItemPosition()).nombre_cliente +"("+ c.get(spnClientes.getSelectedItemPosition()).nombre_negocio+")";
 				pedido.producto = prods.get(spnProductos.getSelectedItemPosition()).nombreProducto;
@@ -168,11 +168,11 @@ public class RealizarPedidosActivity extends Fragment {
 					pedido.fechaEntrega = dateFormat.parse(txtFechaEntrega.getText().toString());
 					Pedido p = datasourcePe.insertarPedido(pedido.cliente, pedido.producto, pedido.cantidad, pedido.fechaPedido, pedido.fechaEntrega, pedido.total, idVendedor);
 					if(p != null){
-					Toast.makeText(getActivity(), "Pedido agregado con éxito", Toast.LENGTH_SHORT).show();}
+					Toast.makeText(getActivity(), R.string.txtPedidoAgregado, Toast.LENGTH_SHORT).show();}
 
 				} catch (ParseException e) {
 
-					Toast.makeText(getActivity(), "Escriba bien la fecha de entrega", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), R.string.txtEscribeFechaBien, Toast.LENGTH_SHORT).show();
 					//e.printStackTrace();
 				}
 				

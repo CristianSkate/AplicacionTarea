@@ -71,10 +71,10 @@ public class EntregasActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				Entrega ent = new Entrega();
+				Entrega ent = new Entrega(getApplicationContext());
 				
 				if(txtCantidad.getText().toString().equals("") || txtTotal.getText().toString().equals("")){
-					Toast.makeText(getApplicationContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), R.string.RelleneTodosLosCampos, Toast.LENGTH_SHORT).show();
 				}else
 				{
 					ent.fechaEntrega = date;
@@ -89,11 +89,11 @@ public class EntregasActivity extends Activity {
 					//LoginActivity.pedidos.remove(index);
 					VerPedidosActivity.adapter.notifyDataSetChanged();
 					if(en !=null) {
-						Toast.makeText(getApplicationContext(), "Entrega registrada con éxito", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), R.string.txtEntregaRegistradaConExito, Toast.LENGTH_SHORT).show();
 						finish();
 					}else
 					{
-						Toast.makeText(getApplicationContext(), "Algo pasó con la conexión", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), R.string.txtAlgoFueMal, Toast.LENGTH_SHORT).show();
 					}
 				}
 			}

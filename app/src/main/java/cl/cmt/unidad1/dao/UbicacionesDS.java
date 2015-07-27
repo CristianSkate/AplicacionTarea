@@ -21,9 +21,10 @@ public class UbicacionesDS {
     private BaseDatos dbHelper;
     private String[] columnas = {"id","idUsuario", "latitud","longitud","ip","direccion"};
     private String tabla = "ubicaciones";
+    private Context ctx;
 
     public UbicacionesDS(Context context){
-
+        this.ctx=context;
         dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
@@ -81,7 +82,7 @@ public class UbicacionesDS {
 
 
     public Ubicacion cursorToUbicacion(Cursor cursor){
-        Ubicacion u = new Ubicacion();
+        Ubicacion u = new Ubicacion(ctx);
         u.idUbicacion=cursor.getInt(0);
         u.idUsuario=cursor.getInt(1);
         u.latitud=cursor.getString(2);

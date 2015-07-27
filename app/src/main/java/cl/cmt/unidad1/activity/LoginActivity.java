@@ -63,7 +63,7 @@ public class LoginActivity extends Activity {
 		}
 			Usuario usuario = datasource.loginUsuario(txt_login.getText().toString(), txt_contrasena.getText().toString());
 			if (usuario != null) {
-				Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(LoginActivity.this, "Usuario correcto", Toast.LENGTH_SHORT).show();
 				prefs.edit().putInt("idVendedor", usuario.id_usuario).apply(); //para buscar clientes
 				prefs.edit().putString("nombreVendedor", usuario.nombre_usuario).apply();
 				Intent intent = new Intent(LoginActivity.this, MantenedorPrincipal.class);
@@ -71,7 +71,7 @@ public class LoginActivity extends Activity {
 				txt_contrasena.setText("");
 				LoginActivity.this.startActivity(intent);
 			} else {
-				Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, R.string.txtUsuarioPasswordIncorrectos, Toast.LENGTH_SHORT).show();
 			}
     }
 

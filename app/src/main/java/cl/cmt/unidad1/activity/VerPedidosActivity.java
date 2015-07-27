@@ -74,8 +74,8 @@ public class VerPedidosActivity extends Fragment {
 	private void confirmarEntrega(final int index){
 		
 		AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
-        dialogo1.setTitle("Confirmacion");  
-        dialogo1.setMessage("¿Desea realizar la entrega ahora?");
+        dialogo1.setTitle(R.string.txtConfirmacion);
+        dialogo1.setMessage(R.string.txtDeseaRealizarEntrega);
         dialogo1.setPositiveButton("Si", new DialogInterface.OnClickListener() {  
             public void onClick(DialogInterface dialogo1, int id) {  
             	

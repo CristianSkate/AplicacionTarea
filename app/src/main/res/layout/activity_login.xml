@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
-        android:text="Bienvenido"
+        android:text="@string/txtBienvenido"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -42,7 +42,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/txt_usuario"
         android:layout_marginTop="19dp"
-        android:text="Contraseña" />
+        android:text="@string/txtContrasena" />
 
     <TextView
         android:id="@+id/textView2"
@@ -51,7 +51,7 @@
         android:layout_alignLeft="@+id/txt_usuario"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="40dp"
-        android:text="Usuario" />
+        android:text="@string/txtUsuario" />
 
     <Button
         android:id="@+id/btn_ingresar"
@@ -60,6 +60,6 @@
         android:layout_below="@+id/txt_contrasena"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Ingresar" />
+        android:text="@string/txtIngresar" />
 
 </RelativeLayout>

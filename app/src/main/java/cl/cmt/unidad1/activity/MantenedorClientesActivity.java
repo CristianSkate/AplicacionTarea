@@ -58,7 +58,7 @@ public class MantenedorClientesActivity extends Fragment {
 			public void onFocusChange(View v, boolean hasFocus) {
 
 				
-				Cliente cliente = new Cliente();
+				Cliente cliente = new Cliente(getActivity().getApplicationContext());
 				int i = 0;
 				int size = clientes.size();
 				boolean ve = true;
@@ -111,9 +111,9 @@ public class MantenedorClientesActivity extends Fragment {
 				}
 				
 				if(!ve){
-					Toast.makeText(getActivity(), "Cliente actualizado con éxito", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(),R.string.txtClienteActualizado, Toast.LENGTH_SHORT).show();
 				}else{
-					Cliente nuevo = new Cliente();
+					Cliente nuevo = new Cliente(getActivity().getApplicationContext());
 					nuevo.nombre_cliente = txtNomCliente.getText().toString();
 					nuevo.nombre_negocio = txtNomNegCliente.getText().toString();
 					nuevo.direccion_cliente = txtDirCliente.getText().toString();
@@ -126,7 +126,7 @@ public class MantenedorClientesActivity extends Fragment {
 					//ClientesActivity.adapter.notifyDataSetChanged();
 
 					if(c != null) {
-						Toast.makeText(getActivity(), "Cliente insertado con éxito id: "+c.id_cliente, Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), R.string.txtClienteInsertado+c.id_cliente, Toast.LENGTH_SHORT).show();
 					}
 				}
 				
@@ -148,7 +148,7 @@ public class MantenedorClientesActivity extends Fragment {
 				boolean ve = true;
 				while (ve && i < size) {
 					if (String.valueOf(clientes.get(i).id_cliente).equals(txtIdCliente.getText().toString())) {
-						Cliente a = new Cliente();
+						Cliente a = new Cliente(getActivity().getApplicationContext());
 						a.id_cliente = Integer.parseInt(txtIdCliente.getText().toString());
 						a.nombre_cliente = txtNomCliente.getText().toString();
 						a.nombre_negocio = txtNomNegCliente.getText().toString();
@@ -166,9 +166,9 @@ public class MantenedorClientesActivity extends Fragment {
 
 				}
 				if (size != clientes.size()) {
-					Toast.makeText(getActivity(), "Se eliminó el cliente con exito", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), R.string.txtClienteEliminado, Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(getActivity(), "El cliente seleccionado no existe", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), R.string.txtClienteNoExiste, Toast.LENGTH_SHORT).show();
 				}
 			}
 

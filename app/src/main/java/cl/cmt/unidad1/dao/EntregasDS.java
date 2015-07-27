@@ -25,9 +25,9 @@ public class EntregasDS {
     private BaseDatos dbHelper;
     private String[] columnas = {"id","cliente", "producto", "cantidad","fechaEntrega","total","idVendedor"};
     private String tabla = "entregas";
-
+    private Context ctx;
     public EntregasDS(Context context){
-
+        this.ctx = context;
         dbHelper = new BaseDatos(context);
     }
     public void open() throws SQLException{
@@ -93,7 +93,7 @@ public class EntregasDS {
 
 
     public Entrega cursorToEntrega(Cursor cursor){
-        Entrega e = new Entrega();
+        Entrega e = new Entrega(ctx);
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
         e.idEntrega = cursor.getInt(0);
         e.cliente=cursor.getString(1);

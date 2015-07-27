@@ -69,7 +69,7 @@ public class RegistraUbicacion extends Service implements LocationListener{
     @Override
     public void onLocationChanged(Location location) {
         datasource = new UbicacionesDS(this.getApplication());
-        Ubicacion ub = new Ubicacion();
+        Ubicacion ub = new Ubicacion(getApplicationContext());
         ub.latitud = String.valueOf(location.getLatitude());
         ub.longitud = String.valueOf(location.getLongitude());
         ub.ip = getLocalIpAddress();

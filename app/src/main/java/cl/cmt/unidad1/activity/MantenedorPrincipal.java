@@ -53,7 +53,7 @@ public class MantenedorPrincipal extends AppCompatActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-        setTitle("Mis Clientes");
+        setTitle(R.string.txtMisClientes);
     }
 
     @Override
@@ -193,7 +193,7 @@ public class MantenedorPrincipal extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Toast.makeText(getApplicationContext(), "Para salir presione salir en el menú", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.txtParaSalirPresione, Toast.LENGTH_SHORT).show();
         return;
     }
 
